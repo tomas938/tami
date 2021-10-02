@@ -113,6 +113,7 @@ export default {};
 		grid-gap: 10rem;
 	}
 	@media only screen and (max-width: 700px) {
+		margin-top: 6.5rem;
 		grid-template-columns: 1fr;
 		justify-items: center;
 		grid-gap: 7rem;

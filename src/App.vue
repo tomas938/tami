@@ -58,5 +58,8 @@ body {
 }
 section {
 	padding: 12.5rem;
+	@media only screen and (max-width: 800px) {
+		padding: 6.5rem 3rem;
+	}
 }
 </style>
