@@ -21,13 +21,13 @@ export default {
 .card {
 	display: flex;
 	flex-direction: column;
+	background-color: white;
+	max-width: 50rem;
 	img {
 		width: 100%;
-		max-height: 100%;
 		object-fit: cover;
 	}
 	&__content {
-		background-color: white;
 		padding: 4rem;
 		h3 {
 			font-size: 1.8rem;

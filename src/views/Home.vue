@@ -4,6 +4,7 @@
 		<Hero></Hero>
 		<section class="news">
 			<img
+				v-if="width > 800"
 				class="milk-bg"
 				src="../assets/News/milk.png"
 				alt="milk-background"
@@ -17,7 +18,7 @@
 				</template>
 			</SectionDescription>
 			<div class="container">
-				<BigCards></BigCards>
+				<BigCards :data="actualityContent"></BigCards>
 			</div>
 			<div class="actuality">
 				<ExpandButton>Všetky recepty</ExpandButton>
@@ -63,9 +64,14 @@
 			</div>
 		</section>
 		<section class="small-carousel"></section>
-		<section class="about"></section>
+		<section class="about">
+			<div class="container">
+				<AboutItems :aboutConent="aboutConent"></AboutItems>
+			</div>
+		</section>
 		<section class="recipes">
 			<img
+				v-if="width > 800"
 				class="milk-bg"
 				src="../assets/News/milk.png"
 				alt="milk-background"
@@ -87,7 +93,7 @@
 				</template>
 			</SectionDescription>
 			<div class="container">
-				<BigCards></BigCards>
+				<BigCards :data="recipesContent"></BigCards>
 			</div>
 		</section>
 		<Footer></Footer>
@@ -102,6 +108,7 @@ import ExpandButton from "../components/ExpandButton.vue";
 import SectionDescription from "../components/SectionDescription.vue";
 import OfferItems from "../components/OfferItems.vue";
 import Footer from "../components/Footer.vue";
+import AboutItems from "../components/AboutItems.vue";
 export default {
 	name: "Home",
 	components: {
@@ -112,6 +119,83 @@ export default {
 		SectionDescription,
 		OfferItems,
 		Footer,
+		AboutItems,
+	},
+	data() {
+		return {
+			width: null,
+			aboutConent: [
+				{
+					img: "leaf",
+					characteristic: "kvalitné",
+					textColor: "green",
+					title: "Bio výrobky",
+					description:
+						"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quis ea accusantium laborum tempore, nulla nostrum reiciendis qui nam perspiciatis unde culpa dolore temporibus facere maiores. Nisi necessitatibus inventore vel consectetur magnam veniam incidunt non.Pariatur nemo quidem, rerum ut mollitia quas quia eligendi, quaerat molestias temporibus voluptatem, unde illo.",
+				},
+				{
+					img: "cow",
+					characteristic: "kvalitné",
+					textColor: "blue",
+					title: "Zariadenie",
+					description:
+						"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quis ea accusantium laborum tempore, nulla nostrum reiciendis qui nam perspiciatis unde culpa dolore temporibus facere maiores. Nisi necessitatibus inventore vel consectetur magnam veniam incidunt non.Pariatur nemo quidem, rerum ut mollitia quas quia eligendi, quaerat molestias temporibus voluptatem, unde illo.",
+				},
+				{
+					img: "certificate",
+					characteristic: "kvalitné",
+					textColor: "red",
+					title: "Certifikáty",
+					description:
+						"Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur quis ea accusantium laborum tempore, nulla nostrum reiciendis qui nam perspiciatis unde culpa dolore temporibus facere maiores. Nisi necessitatibus inventore vel consectetur magnam veniam incidunt non.Pariatur nemo quidem, rerum ut mollitia quas quia eligendi, quaerat molestias temporibus voluptatem, unde illo.",
+				},
+			],
+			actualityContent: [
+				{
+					img: "img-1",
+					heading: "Intolerancia nie je prekážkou",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+				{
+					img: "img-2",
+					heading: "Intolerancia nie je prekážkou",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+				{
+					img: "img-3",
+					heading: "Intolerancia nie je prekážkou",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+			],
+			recipesContent: [
+				{
+					img: "img-1",
+					heading: "zemiakové pečivo s plesňovým syrom",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+				{
+					img: "img-1",
+					heading: "kuracie rezne s plesňovým syrom",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+				{
+					img: "img-1",
+					heading: "tortičky s plesňového syra encíán",
+					description:
+						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
+				},
+			],
+		};
+	},
+	methods: {},
+	mounted() {
+		this.width = window.innerWidth;
+		console.log(this.width);
 	},
 };
 </script>
@@ -248,5 +332,8 @@ export default {
 		rgb(80, 134, 255) 0%,
 		rgb(14, 37, 91) 100%
 	);
+}
+.about {
+	background-color: var(--news-bg);
 }
 </style>

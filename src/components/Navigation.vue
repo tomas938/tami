@@ -87,6 +87,11 @@ export default {
 		justify-content: space-between;
 		padding: 2rem 3rem;
 		background-color: var(--top-navigation-bg);
+		@media only screen and (max-width: 900px) {
+			a {
+				display: none;
+			}
+		}
 		.left,
 		.right {
 			display: flex;
