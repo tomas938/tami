@@ -19,7 +19,7 @@
 			<div class="container">
 				<BigCards></BigCards>
 			</div>
-			<div class="recipes">
+			<div class="actuality">
 				<ExpandButton>Všetky recepty</ExpandButton>
 			</div>
 		</section>
@@ -62,6 +62,35 @@
 				<img class="catalog-bg2" src="../assets/catalog-bg.png" alt="catalog" />
 			</div>
 		</section>
+		<section class="small-carousel"></section>
+		<section class="about"></section>
+		<section class="recipes">
+			<img
+				class="milk-bg"
+				src="../assets/News/milk.png"
+				alt="milk-background"
+			/>
+			<SectionDescription>
+				<template v-slot:title>
+					vyskúšajte
+				</template>
+				<template v-slot:BigTitle>
+					Recepty z našej kuchyne
+				</template>
+				<template v-slot:description>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, iste
+					odit! Nam consequuntur eveniet fugiat incidunt facere ea expedita
+					mollitia ad laudantium magni vero porro iure perferendis ratione eum
+					recusandae aliquam facilis ipsum, delectus consectetur in autem alias.
+					Ab iste doloremque ullam illo voluptatibus dolorum rem sequi
+					temporibus ex provident!
+				</template>
+			</SectionDescription>
+			<div class="container">
+				<BigCards></BigCards>
+			</div>
+		</section>
+		<Footer></Footer>
 	</div>
 </template>
 
@@ -72,6 +101,7 @@ import BigCards from "../components/BigCards.vue";
 import ExpandButton from "../components/ExpandButton.vue";
 import SectionDescription from "../components/SectionDescription.vue";
 import OfferItems from "../components/OfferItems.vue";
+import Footer from "../components/Footer.vue";
 export default {
 	name: "Home",
 	components: {
@@ -81,6 +111,7 @@ export default {
 		ExpandButton,
 		SectionDescription,
 		OfferItems,
+		Footer,
 	},
 };
 </script>
@@ -90,15 +121,16 @@ export default {
 	text-align: center;
 	padding-bottom: 7rem;
 	position: relative;
-
 	.milk-bg {
+		max-width: 250rem;
 		position: absolute;
 		width: 100%;
 		top: 27%;
-		left: 0;
+		left: 50%;
+		transform: translateX(-50%);
 		z-index: 1;
 	}
-	.recipes {
+	.actuality {
 		display: flex;
 		justify-content: center;
 	}
@@ -106,6 +138,7 @@ export default {
 .offers {
 	text-align: center;
 }
+
 .catalog {
 	display: flex;
 	align-items: center;
@@ -116,35 +149,7 @@ export default {
 	/* ff 3.6+ */
 	padding-top: 6rem;
 	padding-bottom: 7rem;
-	background: -moz-radial-gradient(
-		circle at 50% 50%,
-		rgb(80, 134, 255) 0%,
-		rgb(14, 37, 91) 100%
-	);
-	/* safari 5.1+,chrome 10+ */
-	background: -webkit-radial-gradient(
-		circle at 50% 50%,
-		rgb(80, 134, 255) 0%,
-		rgb(14, 37, 91) 100%
-	);
-	/* opera 11.10+ */
-	background: -o-radial-gradient(
-		circle at 50% 50%,
-		rgb(80, 134, 255) 0%,
-		rgb(14, 37, 91) 100%
-	);
-	/* ie 10+ */
-	background: -ms-radial-gradient(
-		circle at 50% 50%,
-		rgb(80, 134, 255) 0%,
-		rgb(14, 37, 91) 100%
-	);
-	/* global 92%+ browsers support */
-	background: radial-gradient(
-		circle at 50% 50%,
-		rgb(80, 134, 255) 0%,
-		rgb(14, 37, 91) 100%
-	);
+
 	&__content {
 		max-width: 80rem;
 	}
@@ -191,5 +196,57 @@ export default {
 		color: var(--catalog-span);
 		text-transform: uppercase;
 	}
+}
+.recipes {
+	position: relative;
+	text-align: center;
+	h2 {
+		color: #fff;
+	}
+	p,
+	.intro {
+		color: var(--recipes-text-color);
+	}
+	.milk-bg {
+		max-width: 250rem;
+		position: absolute;
+		width: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		top: 33%;
+		z-index: 1;
+	}
+}
+.catalog,
+.recipes {
+	background: -moz-radial-gradient(
+		circle at 50% 50%,
+		rgb(80, 134, 255) 0%,
+		rgb(14, 37, 91) 100%
+	);
+	/* safari 5.1+,chrome 10+ */
+	background: -webkit-radial-gradient(
+		circle at 50% 50%,
+		rgb(80, 134, 255) 0%,
+		rgb(14, 37, 91) 100%
+	);
+	/* opera 11.10+ */
+	background: -o-radial-gradient(
+		circle at 50% 50%,
+		rgb(80, 134, 255) 0%,
+		rgb(14, 37, 91) 100%
+	);
+	/* ie 10+ */
+	background: -ms-radial-gradient(
+		circle at 50% 50%,
+		rgb(80, 134, 255) 0%,
+		rgb(14, 37, 91) 100%
+	);
+	/* global 92%+ browsers support */
+	background: radial-gradient(
+		circle at 50% 50%,
+		rgb(80, 134, 255) 0%,
+		rgb(14, 37, 91) 100%
+	);
 }
 </style>

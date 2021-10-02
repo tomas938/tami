@@ -47,11 +47,16 @@ export default {
 
 <style lang="scss" scoped>
 .cards {
+	margin-top: 6rem;
 	position: relative;
 	z-index: 2;
 	margin-bottom: 7rem;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+	@media only screen and (max-width: 800px) {
+		grid-template-columns: 1fr;
+		grid-gap: 4rem;
+	}
 	grid-gap: 2rem;
 }
 </style>

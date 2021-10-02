@@ -25,11 +25,13 @@ li {
 	--top-navigation-detail: #e4e4ed;
 	--dark-blue: #0e255b;
 	--light-blue: #22479b;
+	--footer-icon-bg: #f2f3f6;
 	--news-bg: #f2f3f6;
 	--news-p-color: #d6d6db;
 	--danger: #e21c1a;
 	--section-p-color: #afb5c2;
 	--catalog-span: #aab8d9;
+	--recipes-text-color: #9caed8;
 
 	// Fonts //
 
@@ -38,6 +40,12 @@ li {
 }
 html {
 	font-size: 62.5%;
+	@media only screen and (max-width: 1300px) {
+		font-size: 52.5%;
+	}
+	@media only screen and (max-width: 1100px) {
+		font-size: 42.5%;
+	}
 }
 body {
 	font-size: 1.6rem;

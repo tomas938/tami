@@ -93,7 +93,7 @@ export default {
 			gap: 5rem;
 		}
 		a {
-			font-weight: 600;
+			font-weight: bold;
 			position: relative;
 			text-transform: uppercase;
 			color: var(--top-navigation-links);
@@ -111,6 +111,10 @@ export default {
 			width: 0.1rem;
 			height: 3rem;
 			background-color: #e4e4ed;
+		}
+		a:hover {
+			color: var(--light-blue);
+			transition: color 0.3s ease-in-out;
 		}
 		.right {
 			display: flex;

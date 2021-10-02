@@ -48,5 +48,13 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 2rem;
+	@media only screen and (max-width: 800px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 4rem;
+	}
+	@media only screen and (max-width: 500px) {
+		grid-template-columns: 1fr;
+		grid-gap: 4rem;
+	}
 }
 </style>
