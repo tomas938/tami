@@ -2,4 +2,53 @@
 	<router-view />
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import url("http://fonts.cdnfonts.com/css/sofia-pro");
+@import url("http://fonts.cdnfonts.com/css/myriad-pro");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+:root {
+	// Colors //
+
+	--top-navigation-links: #5f6c8a;
+	--top-navigation-bg: #f6f6fb;
+	--top-navigation-detail: #e4e4ed;
+	--dark-blue: #0e255b;
+	--light-blue: #22479b;
+	--news-bg: #f2f3f6;
+	--news-p-color: #d6d6db;
+	--danger: #e21c1a;
+	--section-p-color: #afb5c2;
+	--catalog-span: #aab8d9;
+
+	// Fonts //
+
+	--sofia: "Sofia Pro", sans-serif;
+	--myriad-pro: "Myriad Pro", sans-serif;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-size: 1.6rem;
+	overflow-x: hidden;
+	font-family: var(--sofia);
+}
+.container {
+	max-width: 1440px;
+	margin: auto;
+}
+section {
+	padding: 12.5rem;
+}
+</style>
