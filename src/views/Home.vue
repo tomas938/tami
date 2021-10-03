@@ -68,10 +68,21 @@
 				class="no-shadow"
 				:visible-slides="3"
 				:slide-ratio="1 / 4"
-				:dragging-distance="70"
+				:gap="3"
+				:fade="true"
 			>
 				<vueper-slide v-for="i in 9" :key="i" :title="i.toString()" />
 			</vueper-slides>
+			<!-- <vueper-slides
+				class="no-shadow"
+				:visible-slides="6"
+				:arrows="false"
+				:slide-ratio="1 / 4"
+				:gap="3"
+				:dragging-distance="70"
+			>
+				<vueper-slide v-for="i in 9" :key="i" :title="i.toString()" />
+			</vueper-slides> -->
 		</section>
 		<section class="about">
 			<div class="container">
@@ -204,16 +215,16 @@ export default {
 						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
 				},
 			],
-			slides: [
-				{
-					title: "Slide #1",
-					content: "Slide content.",
-				},
-				{
-					title: "Slide 2",
-					content: "Slide content.",
-				},
-			],
+			// slides: [
+			// 	{
+			// 		title: "Slide #1",
+			// 		content: "Slide content.",
+			// 	},
+			// 	{
+			// 		title: "Slide 2",
+			// 		content: "Slide content.",
+			// 	},
+			// ],
 		};
 	},
 	methods: {},
