@@ -70,4 +70,7 @@ svg {
 	height: 1rem;
 	margin-left: 4.5rem;
 }
+.active {
+	background-color: var(--danger);
+}
 </style>

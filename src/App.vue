@@ -6,6 +6,9 @@
 @import url("http://fonts.cdnfonts.com/css/sofia-pro");
 @import url("http://fonts.cdnfonts.com/css/myriad-pro");
 
+//** */ Should be fixed i coudl't find victor script font for free :/ **//
+
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&display=swap");
 * {
 	margin: 0;
 	padding: 0;
@@ -37,6 +40,10 @@ li {
 
 	--sofia: "Sofia Pro", sans-serif;
 	--myriad-pro: "Myriad Pro", sans-serif;
+
+	//* CHANGE FONT FOR HERO HEADING *//
+
+	--hero-heading: "Ephesis", cursive;
 }
 html {
 	font-size: 62.5%;
@@ -52,6 +59,7 @@ body {
 	overflow-x: hidden;
 	font-family: var(--sofia);
 }
+
 .container {
 	max-width: 1440px;
 	margin: auto;

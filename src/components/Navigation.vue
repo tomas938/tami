@@ -38,7 +38,11 @@
 				</ul>
 			</div>
 			<div class="navigation__menu">
-				<ExpandButton>Naše produkty</ExpandButton>
+				<ExpandButton
+					@click="toggleProducts"
+					:class="{ active: expandProducts }"
+					>Naše produkty</ExpandButton
+				>
 				<img id="logo" src="../assets/logo.png" alt="tami-logo" />
 				<div class="about">
 					<img src="../assets/eu.png" alt="europe union" />
@@ -63,6 +67,9 @@
 						<router-link to="/">E-SHOP</router-link>
 					</div>
 				</div>
+				<div class="navigation__expand" :class="{ active: expandProducts }">
+					<ExpandProducts></ExpandProducts>
+				</div>
 			</div>
 		</nav>
 	</div>
@@ -70,9 +77,22 @@
 
 <script>
 import ExpandButton from "./ExpandButton.vue";
+import ExpandProducts from "./ExpandProducts.vue";
 export default {
 	components: {
 		ExpandButton,
+		ExpandProducts,
+	},
+	data() {
+		return {
+			expandProducts: false,
+			body: null,
+		};
+	},
+	methods: {
+		toggleProducts() {
+			this.expandProducts = !this.expandProducts;
+		},
 	},
 };
 </script>
@@ -131,7 +151,6 @@ export default {
 		// THIS SHOULD BE FIXED !!! //
 	}
 	&__menu {
-		// min-height: 7rem;
 		position: relative;
 		display: flex;
 		justify-content: space-between;
@@ -139,6 +158,7 @@ export default {
 		padding: 1rem;
 		#logo {
 			position: absolute;
+			z-index: 2;
 			left: 50%;
 			top: -28%;
 			width: 18.9rem;
@@ -168,6 +188,22 @@ export default {
 			height: 3rem;
 			fill: #8792ad;
 		}
+	}
+	&__expand {
+		position: absolute;
+		z-index: 10;
+		pointer-events: none;
+		opacity: 0;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		background-color: white;
+		transition: all 0.3s ease-in-out;
+	}
+	.active {
+		top: 100%;
+		opacity: 1;
+		transition: all 0.3s ease-in-out;
 	}
 }
 </style>
