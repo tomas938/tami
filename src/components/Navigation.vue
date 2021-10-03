@@ -183,7 +183,7 @@ export default {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: 2rem 3rem;
+		padding: 3rem;
 		background-color: var(--top-navigation-bg);
 		@media only screen and (max-width: 900px) {
 			a {
@@ -342,12 +342,15 @@ export default {
 		font-size: 1.8rem;
 	}
 }
+
 #logo-mobile {
 	display: none;
 	@media only screen and (max-width: 900px) {
 		display: block;
-		height: 5rem;
-		width: 100%;
+		position: absolute;
+		top: 1rem;
+		height: 10rem;
+		width: 13.3rem;
 	}
 }
 .mobile {
