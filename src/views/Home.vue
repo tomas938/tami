@@ -63,7 +63,16 @@
 				<img class="catalog-bg2" src="../assets/catalog-bg.png" alt="catalog" />
 			</div>
 		</section>
-		<section class="small-carousel"></section>
+		<section class="small-carousel">
+			<vueper-slides
+				class="no-shadow"
+				:visible-slides="3"
+				:slide-ratio="1 / 4"
+				:dragging-distance="70"
+			>
+				<vueper-slide v-for="i in 9" :key="i" :title="i.toString()" />
+			</vueper-slides>
+		</section>
 		<section class="about">
 			<div class="container">
 				<AboutItems :aboutConent="aboutConent"></AboutItems>
@@ -109,6 +118,9 @@ import SectionDescription from "../components/SectionDescription.vue";
 import OfferItems from "../components/OfferItems.vue";
 import Footer from "../components/Footer.vue";
 import AboutItems from "../components/AboutItems.vue";
+// Carousel library //
+import { VueperSlides, VueperSlide } from "vueperslides";
+import "vueperslides/dist/vueperslides.css";
 export default {
 	name: "Home",
 	components: {
@@ -120,6 +132,8 @@ export default {
 		OfferItems,
 		Footer,
 		AboutItems,
+		VueperSlides,
+		VueperSlide,
 	},
 	data() {
 		return {
@@ -190,6 +204,16 @@ export default {
 						"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore cupiditate veniam rem ducimus obcaecati nostrum accusamus ad soluta repellendus illo!",
 				},
 			],
+			slides: [
+				{
+					title: "Slide #1",
+					content: "Slide content.",
+				},
+				{
+					title: "Slide 2",
+					content: "Slide content.",
+				},
+			],
 		};
 	},
 	methods: {},
@@ -200,6 +224,12 @@ export default {
 };
 </script>
 <style lang="scss">
+.vueperslide {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+
+// documentation link.
+
 .news {
 	background-color: var(--news-bg);
 	text-align: center;
