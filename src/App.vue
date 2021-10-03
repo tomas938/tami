@@ -59,7 +59,9 @@ body {
 	overflow-x: hidden;
 	font-family: var(--sofia);
 }
-
+.noscroll {
+	overflow: hidden;
+}
 .container {
 	max-width: 1440px;
 	margin: auto;

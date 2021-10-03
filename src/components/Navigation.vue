@@ -3,6 +3,8 @@
 		<nav class="navigation">
 			<div class="navigation__links">
 				<ul class="left">
+					<img id="logo-mobile" src="../assets/logo.png" alt="tami-logo" />
+
 					<li>
 						<router-link to="/">domov</router-link>
 					</li>
@@ -34,6 +36,59 @@
 					</li>
 					<div class="lang">
 						<span>SK</span>
+					</div>
+					<div class="hamburger" @click="toggleMobileNav" v-show="mobile">
+						<span class="line" :class="{ mobile: mobileNav }"></span>
+						<span class="line" :class="{ mobile: mobileNav }"></span>
+						<span class="line" :class="{ mobile: mobileNav }"></span>
+					</div>
+					<div>
+						<ul
+							class="mobile__links"
+							:class="{ mobile: mobileNav }"
+							v-show="mobileNav"
+						>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>Domov</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>aktuality</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>recepty</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>školské mlieko</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>súťaž</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>projekty</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>reality</router-link
+								>
+							</li>
+							<li>
+								<router-link class="link" :to="{ name: 'Home' }"
+									>kariéra</router-link
+								>
+							</li>
+						</ul>
 					</div>
 				</ul>
 			</div>
@@ -87,11 +142,33 @@ export default {
 		return {
 			expandProducts: false,
 			body: null,
+			mobile: null,
+			mobileNav: null,
+			windowWidth: null,
 		};
+	},
+	created() {
+		window.addEventListener("resize", this.checkScreenSize);
+		this.checkScreenSize();
+		this.body = document.querySelector("body");
 	},
 	methods: {
 		toggleProducts() {
 			this.expandProducts = !this.expandProducts;
+		},
+		toggleMobileNav() {
+			this.mobileNav = !this.mobileNav;
+			this.body.classList.toggle("noscroll");
+		},
+		checkScreenSize() {
+			this.windowWidth = window.innerWidth;
+			if (this.windowWidth <= 900) {
+				this.mobile = true;
+				return;
+			}
+			this.mobile = false;
+			this.mobileNav = false;
+			return;
 		},
 	},
 };
@@ -105,6 +182,7 @@ export default {
 	&__links {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		padding: 2rem 3rem;
 		background-color: var(--top-navigation-bg);
 		@media only screen and (max-width: 900px) {
@@ -156,6 +234,9 @@ export default {
 		justify-content: space-between;
 		background-color: white;
 		padding: 1rem;
+		@media only screen and (max-width: 900px) {
+			padding: 1rem 0rem;
+		}
 		#logo {
 			position: absolute;
 			z-index: 2;
@@ -163,11 +244,19 @@ export default {
 			top: -28%;
 			width: 18.9rem;
 			transform: translateX(-50%);
+			@media only screen and (max-width: 900px) {
+				display: none;
+			}
 		}
 		.about {
 			display: flex;
 			align-items: center;
 			gap: 2.5rem;
+			img {
+				@media only screen and (max-width: 900px) {
+					display: none;
+				}
+			}
 		}
 		.eshop {
 			display: flex;
@@ -204,6 +293,71 @@ export default {
 		top: 100%;
 		opacity: 1;
 		transition: all 0.3s ease-in-out;
+	}
+}
+.hamburger {
+	cursor: pointer;
+	z-index: 5;
+	.line {
+		display: block;
+		width: 2.8rem;
+		height: 0.4rem;
+		margin: 0.5rem auto;
+		background-color: var(--dark-blue);
+		transition: 0.25s ease-in-out;
+	}
+	.mobile {
+		background-color: white;
+		&:nth-child(1) {
+			transform: translateY(0.6rem) rotate(45deg);
+		}
+		&:nth-child(2) {
+			opacity: 0;
+		}
+		&:nth-child(3) {
+			transform: translateY(-1.3rem) rotate(-45deg);
+		}
+	}
+}
+.mobile__links {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 150vh;
+	padding-top: 15rem;
+	background-color: var(--light-blue);
+	z-index: 4;
+	display: block !important;
+	clip-path: circle(0% at 100% 0);
+	opacity: 0;
+	transition: clip-path 0.5s ease-in-out, 0s opacity 1s;
+	li {
+		margin-bottom: 4rem;
+		text-align: center;
+	}
+	a {
+		display: block;
+		color: white;
+		font-size: 1.8rem;
+	}
+}
+#logo-mobile {
+	display: none;
+	@media only screen and (max-width: 900px) {
+		display: block;
+		height: 5rem;
+		width: 100%;
+	}
+}
+.mobile {
+	clip-path: circle(141.6% at 100% 0);
+	opacity: 1;
+	transition: clip-path 0.5s linear;
+}
+.lang {
+	@media only screen and (max-width: 900px) {
+		display: none;
 	}
 }
 </style>

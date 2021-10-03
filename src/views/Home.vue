@@ -287,6 +287,7 @@ export default {
 	h2 {
 		color: #fff;
 	}
+
 	p,
 	.intro {
 		color: var(--recipes-text-color);

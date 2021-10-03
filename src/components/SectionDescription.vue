@@ -21,6 +21,9 @@ h2 {
 	margin-bottom: 3rem;
 	font-size: 4.7rem;
 	color: var(--dark-blue);
+	@media only screen and (max-width: 600px) {
+		font-size: 3.7rem;
+	}
 }
 p {
 	max-width: 90rem;

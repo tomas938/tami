@@ -15,6 +15,7 @@ export default {};
 <style lang="scss" scoped>
 .hero {
 	position: relative;
+
 	&__content {
 		position: absolute;
 		top: 45%;
